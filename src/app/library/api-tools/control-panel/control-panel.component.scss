@@ -1,0 +1,18 @@
+nav {
+    display:block;
+    float:left;
+    width:130px;
+    height:100vh;
+    background-color:#323232;
+    position:fixed;
+
+    a  {
+        display:block;
+        padding:15px;
+        color:#FFF;
+    
+        &:hover {
+            background-color:#222222;
+        }
+    }
+}

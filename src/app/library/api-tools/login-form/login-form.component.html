@@ -1,0 +1,25 @@
+<div style="position:relative;">
+    <apitools-loader Fullsize="true" *ngIf="IsSubmitting"></apitools-loader>
+    <form [formGroup]="form">
+        <apitools-message [type]="MessageType" [message]="Message"></apitools-message>
+        <img *ngIf="logo" [src]="logo" />
+        <h1 i18n="login|Logging in into something">Login</h1>
+        <div class="form-field">
+            <i class="material-icons">account_circle</i>
+            <input type="text" placeholder="Username or email" i18n-placeholder="username_or_email|Identification username or email to allow access" formControlName="username"
+                    [ngClass]="{error: Username.errors}" />
+        </div>
+        <div class="form-field">
+            <i class="material-icons">fingerprint</i>
+            <input type="password" placeholder="Password" i18n-placeholder="password|Secure string to allow access" formControlName="password"
+                    [ngClass]="{error: Password.errors}" />
+        </div>
+        <div class="form-button">
+            <button [disabled]="!form.valid || IsSubmitting" (click)="SubmitLogin()" i18n="login|Logging in into something">Login</button>
+        </div>
+        <div class="form-links">
+            <a *ngIf="registerRoute" [routerLink]="registerRoute" i18n="register|Creating a new account">Register</a>
+            <a *ngIf="forgotPasswordRoute" [routerLink]="forgotPasswordRoute" i18n="forgot_password|Forgot your password">Forgot password</a>
+        </div>
+    </form>
+</div>

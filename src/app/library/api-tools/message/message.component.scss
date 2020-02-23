@@ -1,0 +1,23 @@
+span {
+    display:block;
+    padding:.9em;
+    font-size:1.05em;
+    border:1px solid rgba(0,0,0,0);
+
+    animation: fade-in 1s normal;
+
+    &.info {
+        background-color:#ebeef2;
+    }
+    &.error {
+        background-color:#c10000;
+        color:#FFF;
+    }
+    &.warning {
+        background-color:#c1c100;
+    }
+    &.success {
+        background-color:#00c100;
+        color:#FFF;
+    }
+}
