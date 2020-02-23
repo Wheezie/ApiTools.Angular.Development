@@ -28,6 +28,9 @@ export class RegisterFormComponent implements OnInit {
   loginRoute: string;
 
   constructor() {
+  }
+
+  ngOnInit() {
     this.form = new FormGroup({
       'username': new FormControl('', this.validations[0]),
       'email': new FormControl('', this.validations[1]),
@@ -38,14 +41,12 @@ export class RegisterFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
   Submit() {
     if (this.IsSubmitting)
       return;
 
     this._submitting = true;
+    console.log(this.form);
   }
 
   get Username() {

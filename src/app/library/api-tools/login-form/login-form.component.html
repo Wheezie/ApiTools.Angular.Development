@@ -4,15 +4,18 @@
         <apitools-message [type]="MessageType" [message]="Message"></apitools-message>
         <img *ngIf="logo" [src]="logo" />
         <h1 i18n="login|Logging in into something">Login</h1>
+        <span class="disclaimer" i18n="login_disclaimer|Login disclaimer message">Warning: Unauthorized access will be logged</span>
         <div class="form-field">
             <i class="material-icons">account_circle</i>
-            <input type="text" placeholder="Username or email" i18n-placeholder="username_or_email|Identification username or email to allow access" formControlName="username"
+            <input type="text" placeholder="Username or email" i18n-placeholder="username_or_email|Identification username or email to allow access" id="usernameField" formControlName="username"
                     [ngClass]="{error: Username.errors}" />
+            <label class="hidden" for="usernameField" i18n="username_or_email">Username or email</label>
         </div>
         <div class="form-field">
             <i class="material-icons">fingerprint</i>
-            <input type="password" placeholder="Password" i18n-placeholder="password|Secure string to allow access" formControlName="password"
+            <input type="password" placeholder="Password" i18n-placeholder="password|Secure string to allow access" id="passwordField" formControlName="password"
                     [ngClass]="{error: Password.errors}" />
+            <label class="hidden" for="passwordField" i18n="password">Password</label>
         </div>
         <div class="form-button">
             <button [disabled]="!form.valid || IsSubmitting" (click)="SubmitLogin()" i18n="login|Logging in into something">Login</button>

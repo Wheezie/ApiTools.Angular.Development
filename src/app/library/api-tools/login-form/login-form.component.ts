@@ -60,23 +60,24 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
       switch (s) {
         case AuthStatus.Unauthorized:
-          this._message = 'Bad username or password.';
-          this._messageType = MessageType.Error;
-          break;
         case AuthStatus.InvalidCredentials:
-          this._message = 'Username or password is invalid.';
+          this._message = $localize`:@@login.invalid_credentials:Username or password is invalid.`;
           this._messageType = MessageType.Error;
           break;
         case AuthStatus.NotConfirmed:
-          this._message = 'Account is not yet confirmed.';
+          this._message = $localize`:@@login.not_confirmed:Account is not yet confirmed.`;
+          this._messageType = MessageType.Warning;
+          break;
+        case AuthStatus.NotFound:
+          this._message = $localize`:@@login.not_found:Specified username/email does not exist.`;
           this._messageType = MessageType.Warning;
           break;
         case AuthStatus.InternalError:
-          this._message = 'Couldn\'t contact the server. Please try again in a few.'
+          this._message = $localize`:@@internal_error:Couldn't contact the server or an internal error occured. Please try again in a few.`
           this._messageType = MessageType.Error;
           break;
         case AuthStatus.Success:
-          this._message = 'Success.';
+          this._message = $localize`:@@login.success:Authentication succeeded`;
           this._messageType = MessageType.Success;
           break;
       }

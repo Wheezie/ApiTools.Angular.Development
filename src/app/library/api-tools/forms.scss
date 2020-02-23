@@ -7,6 +7,11 @@ form {
         margin:.3em;
         text-align:center;
     }
+    .disclaimer {
+        font-size:1.2em;
+        text-align: center;
+        display:block;
+    }
     img {
         width:120px;
         margin:0 auto;
@@ -19,6 +24,10 @@ form {
 }
 .form-field {
     position: relative;
+
+    label.hidden {
+        display:none; 
+    }
 
     i {
         position: absolute;

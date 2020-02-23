@@ -1,18 +1,27 @@
 nav {
+    position:fixed;
     display:block;
-    float:left;
-    width:130px;
+    width:calc(100px + 1.947em);
     height:100vh;
     background-color:#323232;
     position:fixed;
 
     a  {
         display:block;
-        padding:15px;
+        padding:.9735em;
         color:#FFF;
     
         &:hover {
             background-color:#222222;
+            cursor:pointer;
+            color:#ebeef2;
         }
     }
+}
+section#page {
+    position: relative;
+    float:left;
+    width:calc(100% - 100px - 1.947em);
+    min-height:100vh;
+    margin-left:calc(100px + 1.947em);
 }

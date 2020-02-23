@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { AuthResponse } from './responses/auth-response';
 
 import { AuthStatus } from './auth-status.enum';
@@ -39,14 +39,14 @@ export class HttpService {
 
         this.setAuthentication(response.token);
         this._authSubject.next(AuthStatus.Success);
-      }, (error: HttpResponse<any>) => {
+      }, (error: HttpErrorResponse) => {
         switch (error.status) {
           default:
           case 401:
             this.clearAuthentication(AuthStatus.Unauthorized);
             break;
           case 400:
-            const response: BadRequestResponse = error.body;
+            const response: BadRequestResponse = error.error;
             for(const f of response.fields) {
               if (f.field == 'account' && f.error == 'not_confirmed') {
                 this.clearAuthentication(AuthStatus.NotConfirmed);

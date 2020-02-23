@@ -5,6 +5,8 @@ export enum AuthStatus {
     Blocked,
     /// Not yet confirmed
     NotConfirmed,
+    /// Username/email not found.
+    NotFound,
     /// Authorized
     Success,
     /// Signed out

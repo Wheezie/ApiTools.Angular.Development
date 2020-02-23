@@ -29,10 +29,10 @@
         <div class="form-field">
             <i class="material-icons">fingerprint</i>
             <input type="password" placeholder="Password (again)" i18n-placeholder="password_again|Secure string to allow access (again)" formControlName="rePassword"
-                    [ngClass]="{error: RePassword.errors}" />
+                    [ngClass]="{error: RePassword.errors || Password.value != RePassword.value}" />
         </div>
         <div class="form-button">
-            <button [disabled]="!form.valid || IsSubmitting" (click)="Submit()" i18n="register|Creating a new account">Register</button>
+            <button [disabled]="!form.valid || IsSubmitting || Password.value != RePassword.value" (click)="Submit()" i18n="register|Creating a new account">Register</button>
         </div>
         <div class="form-links">
             <a *ngIf="loginRoute" [routerLink]="loginRoute" i18n="login|Logging in into something">Login</a>
