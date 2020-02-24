@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpService } from './library/api-tools/http.service';
+import { HttpService } from '../library/api-tools/http.service';
 
 @Component({
   selector: 'apitools-root',
